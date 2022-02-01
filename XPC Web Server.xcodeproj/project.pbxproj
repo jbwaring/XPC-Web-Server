@@ -12,7 +12,25 @@
 		0329D8A427A87A7D000A440F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0329D8A327A87A7D000A440F /* Assets.xcassets */; };
 		0329D8A727A87A7D000A440F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0329D8A527A87A7D000A440F /* Main.storyboard */; };
 		0329D8A927A87A7D000A440F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0329D8A827A87A7D000A440F /* main.m */; };
+		0398460A27A8923600C7120D /* XPCRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 0398460927A8923600C7120D /* XPCRequestHandler.m */; };
+		0398460D27A897D200C7120D /* xplaneConnect.c in Sources */ = {isa = PBXBuildFile; fileRef = 0398460C27A897D200C7120D /* xplaneConnect.c */; };
+		03EA78C027A87BF80049D6CC /* Pods_XPC_Web_Server.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB8328CEBB8774C2DE0B9A2 /* Pods_XPC_Web_Server.framework */; };
+		03EA78C127A87BF80049D6CC /* Pods_XPC_Web_Server.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EFB8328CEBB8774C2DE0B9A2 /* Pods_XPC_Web_Server.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		03EA78C227A87BF80049D6CC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				03EA78C127A87BF80049D6CC /* Pods_XPC_Web_Server.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0329D89A27A87A7C000A440F /* XPC Web Server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "XPC Web Server.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +42,13 @@
 		0329D8A627A87A7D000A440F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0329D8A827A87A7D000A440F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0329D8AA27A87A7D000A440F /* XPC_Web_Server.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XPC_Web_Server.entitlements; sourceTree = "<group>"; };
+		0398460827A8923600C7120D /* XPCRequestHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XPCRequestHandler.h; sourceTree = "<group>"; };
+		0398460927A8923600C7120D /* XPCRequestHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XPCRequestHandler.m; sourceTree = "<group>"; };
+		0398460B27A897D200C7120D /* xplaneConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xplaneConnect.h; sourceTree = "<group>"; };
+		0398460C27A897D200C7120D /* xplaneConnect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xplaneConnect.c; sourceTree = "<group>"; };
+		1296CFE8C907EB291B69E5B0 /* Pods-XPC Web Server.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XPC Web Server.debug.xcconfig"; path = "Target Support Files/Pods-XPC Web Server/Pods-XPC Web Server.debug.xcconfig"; sourceTree = "<group>"; };
+		4A45786B75771F210B2C09AA /* Pods-XPC Web Server.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XPC Web Server.release.xcconfig"; path = "Target Support Files/Pods-XPC Web Server/Pods-XPC Web Server.release.xcconfig"; sourceTree = "<group>"; };
+		EFB8328CEBB8774C2DE0B9A2 /* Pods_XPC_Web_Server.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XPC_Web_Server.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03EA78C027A87BF80049D6CC /* Pods_XPC_Web_Server.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +68,8 @@
 			children = (
 				0329D89C27A87A7C000A440F /* XPC Web Server */,
 				0329D89B27A87A7C000A440F /* Products */,
+				D93907B028A1E9FCDCCC84D8 /* Pods */,
+				8475B709667E084646D5AEFD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,14 +86,35 @@
 			children = (
 				0329D89D27A87A7C000A440F /* AppDelegate.h */,
 				0329D89E27A87A7C000A440F /* AppDelegate.m */,
+				0398460827A8923600C7120D /* XPCRequestHandler.h */,
+				0398460927A8923600C7120D /* XPCRequestHandler.m */,
 				0329D8A027A87A7C000A440F /* ViewController.h */,
 				0329D8A127A87A7C000A440F /* ViewController.m */,
+				0398460C27A897D200C7120D /* xplaneConnect.c */,
+				0398460B27A897D200C7120D /* xplaneConnect.h */,
 				0329D8A327A87A7D000A440F /* Assets.xcassets */,
 				0329D8A527A87A7D000A440F /* Main.storyboard */,
 				0329D8A827A87A7D000A440F /* main.m */,
 				0329D8AA27A87A7D000A440F /* XPC_Web_Server.entitlements */,
 			);
 			path = "XPC Web Server";
+			sourceTree = "<group>";
+		};
+		8475B709667E084646D5AEFD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EFB8328CEBB8774C2DE0B9A2 /* Pods_XPC_Web_Server.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D93907B028A1E9FCDCCC84D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1296CFE8C907EB291B69E5B0 /* Pods-XPC Web Server.debug.xcconfig */,
+				4A45786B75771F210B2C09AA /* Pods-XPC Web Server.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -75,9 +124,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0329D8AD27A87A7D000A440F /* Build configuration list for PBXNativeTarget "XPC Web Server" */;
 			buildPhases = (
+				180E99F01F695364C5E9BBA4 /* [CP] Check Pods Manifest.lock */,
 				0329D89627A87A7C000A440F /* Sources */,
 				0329D89727A87A7C000A440F /* Frameworks */,
 				0329D89827A87A7C000A440F /* Resources */,
+				D48A1B91B31992B03271316B /* [CP] Embed Pods Frameworks */,
+				03EA78C227A87BF80049D6CC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,14 +184,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		180E99F01F695364C5E9BBA4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XPC Web Server-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D48A1B91B31992B03271316B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-XPC Web Server/Pods-XPC Web Server-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-XPC Web Server/Pods-XPC Web Server-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XPC Web Server/Pods-XPC Web Server-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0329D89627A87A7C000A440F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0398460A27A8923600C7120D /* XPCRequestHandler.m in Sources */,
 				0329D8A227A87A7C000A440F /* ViewController.m in Sources */,
 				0329D8A927A87A7D000A440F /* main.m in Sources */,
 				0329D89F27A87A7C000A440F /* AppDelegate.m in Sources */,
+				0398460D27A897D200C7120D /* xplaneConnect.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,10 +366,12 @@
 		};
 		0329D8AE27A87A7D000A440F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1296CFE8C907EB291B69E5B0 /* Pods-XPC Web Server.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "XPC Web Server/XPC_Web_Server.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -296,10 +394,12 @@
 		};
 		0329D8AF27A87A7D000A440F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A45786B75771F210B2C09AA /* Pods-XPC Web Server.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "XPC Web Server/XPC_Web_Server.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;

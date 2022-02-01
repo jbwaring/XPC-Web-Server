@@ -1,0 +1,6 @@
+{
+	"isUsingMultipleDREF": "true",
+	"sim/cockpit2/gauges/indicators/airspeed_kts_pilot": ["0"],
+	"sim/cockpit2/fuel/fuel_quantity": ["0", "1"]
+	
+}

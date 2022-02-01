@@ -6,9 +6,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <PSWebSocketServer.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : PSWebSocketServer <PSWebSocketServerDelegate>
 
+@property (nonatomic, strong) PSWebSocketServer *server;
 
 @end
 
