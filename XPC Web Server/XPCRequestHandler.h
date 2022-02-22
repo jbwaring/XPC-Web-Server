@@ -15,11 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (class, atomic) XPCSocket xpcSocket;
 
-
 +(void) handleRequest:(id) message andSocket:(PSWebSocket*)socket;
 +(void) handleMultipleDREFsRequest:(NSMutableDictionary*)request andSocket:(PSWebSocket*)socket;
 +(int) testXPlaneConnect;
-
++(void) handleCommandConnect:(PSWebSocket*)socket;
 @end
 
 NS_ASSUME_NONNULL_END

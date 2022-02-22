@@ -12,12 +12,23 @@
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
-    _server = [PSWebSocketServer serverWithHost:@"127.0.0.1" port:9001];
+    NSString *serverIP = @"127.0.0.1";
+    NSUInteger serverPort = 9001;
+    _server = [PSWebSocketServer serverWithHost:serverIP port:serverPort];
     _server.delegate = self;
     [_server start];
     
     if([XPCRequestHandler testXPlaneConnect] < 0){
         // deal with error
+        NSNotification* notifyXPlaneConnectionError = [[NSNotification alloc] initWithName:@"XPConnectError" object:NULL userInfo:NULL];
+        [[NSNotificationCenter defaultCenter] postNotification:notifyXPlaneConnectionError];
+    } else {
+        
+        NSArray *serverInfo = @[serverIP, [NSString stringWithFormat:@"%ld", serverPort] ];
+        
+        NSNotification* notifyXPlaneConnectionOK = [[NSNotification alloc] initWithName:@"XPConnectOK" object:serverInfo userInfo:NULL];
+        
+        [[NSNotificationCenter defaultCenter] postNotification:notifyXPlaneConnectionOK];
     }
 }
 
