@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 +(void) handleMultipleDREFsRequest:(NSMutableDictionary*)request andSocket:(PSWebSocket*)socket;
 +(int) testXPlaneConnect;
 +(void) handleCommandConnect:(PSWebSocket*)socket;
++(void) getPosition:(PSWebSocket*)socket;
 @end
 
 NS_ASSUME_NONNULL_END

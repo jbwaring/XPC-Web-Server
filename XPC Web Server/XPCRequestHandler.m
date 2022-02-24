@@ -19,7 +19,7 @@
                                                        options:NSJSONReadingAllowFragments
                                                          error:&error];
     
-    NSLog(@"handleRequest: %@", [data debugDescription]);
+//    NSLog(@"handleRequest: %@", [data debugDescription]);
     if([data objectForKey:@"isUsingMultipleDREF"] != nil){
         //Client Requested Multiple DREFS
         [XPCRequestHandler handleMultipleDREFsRequest:data andSocket:socket];
@@ -28,6 +28,9 @@
         //Client Requested Multiple DREFS
         if([[data objectForKey:@"command"]  isEqual:@"CONNECT"]){
             [XPCRequestHandler handleCommandConnect:socket];
+        }
+        if([[data objectForKey:@"command"]  isEqual:@"GETPOSITION"]){
+            [XPCRequestHandler getPosition:socket];
         }
     }
 }
@@ -205,5 +208,48 @@
         [socket send:jsonString];
         NSLog(@"%@", jsonString);
     }
+}
+
+
++(void) getPosition:(PSWebSocket*)socket {
+    NSLog(@"GET POSITION");
+    
+    XPCSocket sock = openUDP("127.0.0.1");
+    double posi[7];
+    getPOSI(sock, posi, 0);
+    
+
+    char* dref = "sim/flightmodel/position/mag_psi";
+    float heading = 0.0F;
+    int size = 1;
+    
+
+    if(getDREF(sock, dref, &heading, &size) < 0)
+    {
+        printf("And error occured.");
+    }
+    else
+    {
+        printf("The gear handle status is %f.", heading);
+    }
+    NSMutableArray *position = [[NSMutableArray alloc] initWithCapacity:0];
+    for( int i = 0; i < 7; i++){
+        [position addObject:[NSNumber numberWithDouble:posi[i]]];
+    }
+    
+    NSDictionary *responseDict = @{@"position":position,@"heading":[NSNumber numberWithFloat:heading]};
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:responseDict
+                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                         error:&error];
+
+    if (! jsonData) {
+        NSLog(@"Got an error: %@", error);
+    } else {
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        [socket send:jsonString];
+        NSLog(@"%@", jsonString);
+    }
+    closeUDP(sock);
 }
 @end

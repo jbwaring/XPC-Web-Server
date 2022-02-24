@@ -16,3 +16,10 @@ int main(int argc, const char * argv[]) {
     #endif
     return NSApplicationMain(argc, argv);
 }
+
+
+
+/*
+ [readUDP] ERROR: Select command error
+ [getDREFs] ERROR: Read operation failed.
+*/
