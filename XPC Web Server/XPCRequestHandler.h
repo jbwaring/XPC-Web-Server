@@ -11,15 +11,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XPCRequestHandler : NSObject
+@interface XPCRequestHandler : NSObject {
+    XPCSocket xpcSocket;
+}
 
-@property (class, atomic) XPCSocket xpcSocket;
+@property (atomic) XPCSocket xpcSocket;
 
-+(void) handleRequest:(id) message andSocket:(PSWebSocket*)socket;
-+(void) handleMultipleDREFsRequest:(NSMutableDictionary*)request andSocket:(PSWebSocket*)socket;
-+(int) testXPlaneConnect;
-+(void) handleCommandConnect:(PSWebSocket*)socket;
-+(void) getPosition:(PSWebSocket*)socket;
++ (id) sharedManager;
+- (void) handleRequest:(id) message andSocket:(PSWebSocket*)socket;
+- (void) handleMultipleDREFsRequest:(NSMutableDictionary*)request andSocket:(PSWebSocket*)socket;
+- (int) testXPlaneConnect;
+- (void) handleCommandConnect:(PSWebSocket*)socket;
+- (void) getPosition:(PSWebSocket*)socket;
+- (void) sendResponseMessage:(NSDictionary*)dict andSocket:(PSWebSocket*)socket;
+- (void) resetSocket;
+- (void) setDREF:(NSMutableDictionary*)request andSocket:(PSWebSocket*)socket;
 @end
 
 NS_ASSUME_NONNULL_END

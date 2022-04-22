@@ -12,13 +12,18 @@
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
-    NSString *serverIP = @"127.0.0.1";
+
+    //    NSString *serverIP = @"172.31.70.84";
+        NSString *serverIP = @"172.31.12.1";
     NSUInteger serverPort = 9001;
     _server = [PSWebSocketServer serverWithHost:serverIP port:serverPort];
     _server.delegate = self;
     [_server start];
     
-    if([XPCRequestHandler testXPlaneConnect] < 0){
+    
+    
+    
+    if([[XPCRequestHandler sharedManager] testXPlaneConnect] < 0){
         // deal with error
         NSNotification* notifyXPlaneConnectionError = [[NSNotification alloc] initWithName:@"XPConnectError" object:NULL userInfo:NULL];
         [[NSNotificationCenter defaultCenter] postNotification:notifyXPlaneConnectionError];
@@ -35,22 +40,22 @@
 #pragma mark - PSWebSocketServerDelegate
 
 - (void)serverDidStart:(PSWebSocketServer *)server {
-    NSLog(@"Server did start…");
+//    NSLog(@"Server did start…");
 }
 - (void)serverDidStop:(PSWebSocketServer *)server {
-    NSLog(@"Server did stop…");
+//    NSLog(@"Server did stop…");
 }
 - (BOOL)server:(PSWebSocketServer *)server acceptWebSocketWithRequest:(NSURLRequest *)request {
-    NSLog(@"Server should accept request: %@", request);
+//    NSLog(@"Server should accept request: %@", request);
     return YES;
 }
 - (void)server:(PSWebSocketServer *)server webSocket:(PSWebSocket *)webSocket didReceiveMessage:(id)message {
-    
-    [XPCRequestHandler handleRequest:message andSocket:webSocket];
+    XPCRequestHandler *requestHandler = [XPCRequestHandler sharedManager];
+    [requestHandler handleRequest:message andSocket:webSocket];
     
 }
 - (void)server:(PSWebSocketServer *)server webSocketDidOpen:(PSWebSocket *)webSocket {
-    NSLog(@"Server websocket did open");
+//    NSLog(@"Server websocket did open");
 }
 - (void)server:(PSWebSocketServer *)server webSocket:(PSWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
     NSLog(@"Server websocket did close with code: %@, reason: %@, wasClean: %@", @(code), reason, @(wasClean));

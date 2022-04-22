@@ -103,11 +103,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="72"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J2f-cs-xRl">
-                                <rect key="frame" x="-2" y="348" width="604" height="32"/>
+                                <rect key="frame" x="-2" y="20" width="604" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="XPC Server Running at localhost:9000" id="bg0-ri-eKT">
                                     <font key="font" metaFont="systemMedium" size="27"/>
@@ -123,7 +123,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="723"/>
+            <point key="canvasLocation" x="75" y="559"/>
         </scene>
     </scenes>
 </document>
